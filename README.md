@@ -1,7 +1,7 @@
-# Especialist on Spring Rest
+# Specialist on Spring Rest
 
-Project will simulate the application the IFood, with objective academic in studyng the Spring Rest API's
+Project will simulate the application the IFood, with objective academic in studying the Spring Rest API's
 
-## Tecnologias
+## Technologies
 - JavaSE 12
 - Spring Boot v2.2.4
