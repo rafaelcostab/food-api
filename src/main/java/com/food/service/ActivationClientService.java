@@ -1,11 +1,9 @@
 package com.food.service;
 
-import org.springframework.stereotype.Component;
-
 import com.food.model.Client;
 import com.food.notification.Notificator;
 
-@Component
+
 public class ActivationClientService {
 	
 	private Notificator notificator;
