@@ -1,11 +1,10 @@
 package com.food.notification;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.food.model.Client;
 
-@Qualifier("normal")
+@NotificatorType(UrgentNivel.NORMAL)
 @Component
 public class NotificatorEmail implements Notificator {
 	
