@@ -5,18 +5,19 @@ import org.springframework.stereotype.Component;
 
 import com.food.model.Client;
 
-@Profile("production")
+@Profile("development")
 @NotificatorType(UrgentNivel.NORMAL)
 @Component
-public class NotificatorEmail implements Notificator {
+public class NotificatorEmailMock implements Notificator {
 	
-	public NotificatorEmail() {
-		System.out.println("Starting: NotificatorEmail");
+	public NotificatorEmailMock() {
+		System.out.println("Starting: NotificatorEmailMock");
 	}
+
 	
 	@Override
 	public void notify(Client client, String message) {	
-		System.out.printf("notifying %s through the email %s: %s\n",
+		System.out.printf("Mock: Notification would be send by %s through the email %s: %s\n",
 				client.getName(), client.getEmail(), message);
 	}	
 }
