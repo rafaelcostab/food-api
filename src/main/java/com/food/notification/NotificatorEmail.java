@@ -12,7 +12,7 @@ public class NotificatorEmail implements Notificator {
 	@Value("${notificator.email.server-host}")
 	private String host;
 	
-	@Value("$notificator.email.server-port")
+	@Value("${notificator.email.server-port}")
 	private Integer port;
 	
 	@Override
