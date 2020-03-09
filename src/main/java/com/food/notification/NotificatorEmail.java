@@ -1,6 +1,6 @@
 package com.food.notification;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.food.model.Client;
@@ -9,16 +9,13 @@ import com.food.model.Client;
 @Component
 public class NotificatorEmail implements Notificator {
 	
-	@Value("${notificator.email.server-host}")
-	private String host;
-	
-	@Value("${notificator.email.server-port}")
-	private Integer port;
+	@Autowired
+	private NotificatorProperties properties;
 	
 	@Override
 	public void notify(Client client, String message) {	
-		System.out.println("Host: " + host);
-		System.out.println("Port: " + port);
+		System.out.println("Host: " + properties.getServerHost());
+		System.out.println("Port: " + properties.getServerPort());
 		
 		System.out.printf("notifying %s through the email %s: %s\n",
 				client.getName(), client.getEmail(), message);
