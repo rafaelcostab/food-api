@@ -1,5 +1,5 @@
-insert into kitchens (name) values ('Thai');
-insert into kitchens (name) values ('Indian');
-insert into kitchens (name) values ('Brasilian');
-insert into kitchens (name) values ('Chinese');
-insert into kitchens (name) values ('Japanese');
+insert into kitchen (name) values ('Thai');
+insert into kitchen (name) values ('Indian');
+insert into kitchen (name) values ('Brasilian');
+insert into kitchen (name) values ('Chinese');
+insert into kitchen (name) values ('Japanese');
