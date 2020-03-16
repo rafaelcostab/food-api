@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import com.food.FoodApiApplication;
 import com.food.domain.model.Kitchen;
 
-public class IncludeKitchenMain {
+public class AlterKitchenMain {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(FoodApiApplication.class)
@@ -17,16 +17,11 @@ public class IncludeKitchenMain {
 		RegisterKitchen registerKitchen = applicationContext.getBean(RegisterKitchen.class);
 		
 		Kitchen kitchen1 = new Kitchen();
+		kitchen1.setId(1L);
 		kitchen1.setName("Brasilian");
 		
-		Kitchen kitchen2 = new Kitchen();
-		kitchen2.setName("Japonese");
+		registerKitchen.save(kitchen1);
 		
-		kitchen1 = registerKitchen.save(kitchen1);
-		kitchen2 = registerKitchen.save(kitchen2);
-		
-		System.out.printf("%d - %s\n", kitchen1.getId(), kitchen1.getName());
-		System.out.printf("%d - %s\n", kitchen2.getId(), kitchen2.getName());
 	}
 
 }
