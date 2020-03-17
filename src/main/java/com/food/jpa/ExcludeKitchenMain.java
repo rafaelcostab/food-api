@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.food.FoodApiApplication;
 import com.food.domain.model.Kitchen;
+import com.food.domain.repository.KitchenRepository;
 
 public class ExcludeKitchenMain {
 
@@ -14,7 +15,7 @@ public class ExcludeKitchenMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		RegisterKitchen registerKitchen = applicationContext.getBean(RegisterKitchen.class);
+		KitchenRepository registerKitchen = applicationContext.getBean(KitchenRepository.class);
 		
 		Kitchen kitchen = new Kitchen();
 		kitchen.setId(1L);

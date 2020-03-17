@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.food.FoodApiApplication;
 import com.food.domain.model.Kitchen;
+import com.food.domain.repository.KitchenRepository;
 
 public class FindKitchenMain {
 
@@ -16,9 +17,9 @@ public class FindKitchenMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		RegisterKitchen registerKitchen = applicationContext.getBean(RegisterKitchen.class);
+		KitchenRepository registerKitchen = applicationContext.getBean(KitchenRepository.class);
 		
-		List<Kitchen> listKitchen = registerKitchen.list();
+		List<Kitchen> listKitchen = registerKitchen.findAll();
 		
 		for (Kitchen kitchen : listKitchen) {
 			System.out.println(kitchen.getName());

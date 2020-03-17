@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.food.FoodApiApplication;
 import com.food.domain.model.Kitchen;
+import com.food.domain.repository.KitchenRepository;
 
 public class ConsultKitchenMain {
 
@@ -14,11 +15,11 @@ public class ConsultKitchenMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		RegisterKitchen registerKitchen = applicationContext.getBean(RegisterKitchen.class);
+		KitchenRepository kitchens = applicationContext.getBean(KitchenRepository.class);
 		
-		Kitchen kitchen = registerKitchen.find(1L);
+		Kitchen kitchensAll = kitchens.findById(1L);
 
-		System.out.println(kitchen.getName());
+		System.out.println(kitchensAll.getName());
 		
 	}
 

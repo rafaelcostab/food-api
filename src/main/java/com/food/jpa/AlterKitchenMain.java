@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.food.FoodApiApplication;
 import com.food.domain.model.Kitchen;
+import com.food.domain.repository.KitchenRepository;
 
 public class AlterKitchenMain {
 
@@ -14,13 +15,13 @@ public class AlterKitchenMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		RegisterKitchen registerKitchen = applicationContext.getBean(RegisterKitchen.class);
+		KitchenRepository kitchenRepository = applicationContext.getBean(KitchenRepository.class);
 		
 		Kitchen kitchen1 = new Kitchen();
 		kitchen1.setId(1L);
 		kitchen1.setName("Brasilian");
 		
-		registerKitchen.save(kitchen1);
+		kitchenRepository.add(kitchen1);
 		
 	}
 

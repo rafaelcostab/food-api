@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 
 import com.food.FoodApiApplication;
 import com.food.domain.model.Kitchen;
+import com.food.domain.repository.KitchenRepository;
 
 public class IncludeKitchenMain {
 
@@ -14,7 +15,7 @@ public class IncludeKitchenMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		RegisterKitchen registerKitchen = applicationContext.getBean(RegisterKitchen.class);
+		KitchenRepository kitchenRepository = applicationContext.getBean(KitchenRepository.class);
 		
 		Kitchen kitchen1 = new Kitchen();
 		kitchen1.setName("Brasilian");
@@ -22,8 +23,8 @@ public class IncludeKitchenMain {
 		Kitchen kitchen2 = new Kitchen();
 		kitchen2.setName("Japonese");
 		
-		kitchen1 = registerKitchen.save(kitchen1);
-		kitchen2 = registerKitchen.save(kitchen2);
+		kitchen1 = kitchenRepository.add(kitchen1);
+		kitchen2 = kitchenRepository.add(kitchen2);
 		
 		System.out.printf("%d - %s\n", kitchen1.getId(), kitchen1.getName());
 		System.out.printf("%d - %s\n", kitchen2.getId(), kitchen2.getName());
