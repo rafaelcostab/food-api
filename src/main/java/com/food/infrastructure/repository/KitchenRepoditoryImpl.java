@@ -1,4 +1,4 @@
-package com.food.infrastructure.repoditory;
+package com.food.infrastructure.repository;
 
 import java.util.List;
 
