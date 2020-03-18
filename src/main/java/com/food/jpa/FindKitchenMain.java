@@ -1,7 +1,5 @@
 package com.food.jpa;
 
-import java.util.List;
-
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -17,13 +15,12 @@ public class FindKitchenMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		KitchenRepository registerKitchen = applicationContext.getBean(KitchenRepository.class);
+		KitchenRepository kitchens = applicationContext.getBean(KitchenRepository.class);
 		
-		List<Kitchen> listKitchen = registerKitchen.findAll();
+		Kitchen kitchen = kitchens.findById(1L);
+
+		System.out.println(kitchen.getName());
 		
-		for (Kitchen kitchen : listKitchen) {
-			System.out.println(kitchen.getName());
-		}
 	}
 
 }
