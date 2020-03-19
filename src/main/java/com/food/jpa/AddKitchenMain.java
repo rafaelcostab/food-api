@@ -8,7 +8,7 @@ import com.food.FoodApiApplication;
 import com.food.domain.model.Kitchen;
 import com.food.domain.repository.KitchenRepository;
 
-public class IncludeKitchenMain {
+public class AddKitchenMain {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(FoodApiApplication.class)
