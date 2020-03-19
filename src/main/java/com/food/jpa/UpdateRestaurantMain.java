@@ -8,7 +8,7 @@ import com.food.FoodApiApplication;
 import com.food.domain.model.Kitchen;
 import com.food.domain.repository.KitchenRepository;
 
-public class AlterKitchenMain {
+public class UpdateRestaurantMain {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(FoodApiApplication.class)
@@ -17,11 +17,11 @@ public class AlterKitchenMain {
 		
 		KitchenRepository kitchenRepository = applicationContext.getBean(KitchenRepository.class);
 		
-		Kitchen kitchen1 = new Kitchen();
-		kitchen1.setId(1L);
-		kitchen1.setName("Brasilian");
+		Kitchen kitchen = new Kitchen();
+		kitchen.setId(1L);
+		kitchen.setName("Brasilian");
 		
-		kitchenRepository.add(kitchen1);
+		kitchenRepository.add(kitchen);
 		
 	}
 
