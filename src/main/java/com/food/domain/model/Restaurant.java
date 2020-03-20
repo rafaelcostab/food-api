@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,5 +26,8 @@ public class Restaurant {
 	
 	@Column(name="tax_freight")
 	private BigDecimal taxFreight;
+	
+	@ManyToOne
+	private Kitchen kitchen;
 	
 }

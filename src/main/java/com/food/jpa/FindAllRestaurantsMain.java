@@ -22,7 +22,10 @@ public class FindAllRestaurantsMain {
 		List<Restaurant> restaurants = restaurantRespository.findAll();
 		
 		for (Restaurant restaurant : restaurants) {
-			System.out.println(restaurant.getName());
+			System.out.printf("%s - %f - %s\n", restaurant.getName(),
+					restaurant.getTaxFreight(),
+					restaurant.getKitchen().getName()
+					);
 		}
 	}
 
