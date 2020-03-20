@@ -12,7 +12,7 @@ import com.food.domain.model.Kitchen;
 import com.food.domain.repository.KitchenRepository;
 
 @Component
-public class KitchenRepoditoryImpl implements KitchenRepository{
+public class KitchenRepositoryImpl implements KitchenRepository{
 
 	@PersistenceContext
 	private EntityManager manager;

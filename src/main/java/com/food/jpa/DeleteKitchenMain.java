@@ -8,7 +8,7 @@ import com.food.FoodApiApplication;
 import com.food.domain.model.Kitchen;
 import com.food.domain.repository.KitchenRepository;
 
-public class IncludeKitchenMain {
+public class DeleteKitchenMain {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(FoodApiApplication.class)
@@ -17,17 +17,11 @@ public class IncludeKitchenMain {
 		
 		KitchenRepository kitchenRepository = applicationContext.getBean(KitchenRepository.class);
 		
-		Kitchen kitchen1 = new Kitchen();
-		kitchen1.setName("Brasilian");
+		Kitchen kitchen = new Kitchen();
+		kitchen.setId(1L);
 		
-		Kitchen kitchen2 = new Kitchen();
-		kitchen2.setName("Japonese");
+		kitchenRepository.remove(kitchen);
 		
-		kitchen1 = kitchenRepository.add(kitchen1);
-		kitchen2 = kitchenRepository.add(kitchen2);
-		
-		System.out.printf("%d - %s\n", kitchen1.getId(), kitchen1.getName());
-		System.out.printf("%d - %s\n", kitchen2.getId(), kitchen2.getName());
 	}
 
 }
