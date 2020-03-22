@@ -18,6 +18,6 @@ public class FormPayment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String descricao;
+	private String description;
 	
 }
