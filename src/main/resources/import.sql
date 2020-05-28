@@ -14,3 +14,6 @@ insert into permission (name, description) values ('Consult restaurant', 'Permit
 
 insert into state (name) values ('São Paulo');
 insert into state (name) values ('Paraná');
+
+insert into city (name, state_id) values ('Diadema', 1);
+insert into city (name, state_id) values ('Jabaquara', 1);
