@@ -8,9 +8,9 @@ import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.food.domain.model.Permission;
-import com.food.domain.repository.PermissionReporitory;
+import com.food.domain.repository.PermissionRepository;
 
-public class PermissionRepositoryImpl implements PermissionReporitory{
+public class PermissionRepositoryImpl implements PermissionRepository{
 
 	@PersistenceContext
 	private EntityManager manager;

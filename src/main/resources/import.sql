@@ -9,5 +9,8 @@ insert into form_payment (description) values ('Credit');
 insert into form_payment (description) values ('Debit');
 insert into form_payment (description) values ('Money');
 
-insert into permission (name, description) values('Consult kitchen', 'Permit user consult kitchen');
-insert into permission (name, description) values('Consult restaurant', 'Permit user consult restaurant');
+insert into permission (name, description) values ('Consult kitchen', 'Permit user consult kitchen');
+insert into permission (name, description) values ('Consult restaurant', 'Permit user consult restaurant');
+
+insert into state (name) values ('São Paulo');
+insert into state (name) values ('Paraná');

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.food.domain.model.Permission;
 
-public interface PermissionReporitory {
+public interface PermissionRepository {
 
 	List<Permission> findAll();
 	Permission findById(Long id);
