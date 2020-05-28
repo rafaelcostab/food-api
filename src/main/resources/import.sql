@@ -8,3 +8,6 @@ insert into restaurant (name, tax_freight, kitchen_id) values ('Esquerda Esquerd
 insert into form_payment (description) values ('Credit');
 insert into form_payment (description) values ('Debit');
 insert into form_payment (description) values ('Money');
+
+insert into permission (name, description) values('Consult kitchen', 'Permit user consult kitchen');
+insert into permission (name, description) values('Consult restaurant', 'Permit user consult restaurant');
