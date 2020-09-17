@@ -1,17 +1,17 @@
-package com.food.infrastructure.repository;
+ package com.food.infrastructure.repository;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.food.domain.model.Kitchen;
 import com.food.domain.repository.KitchenRepository;
 
-@Component
+@Repository
 public class KitchenRepositoryImpl implements KitchenRepository{
 
 	@PersistenceContext
@@ -20,6 +20,13 @@ public class KitchenRepositoryImpl implements KitchenRepository{
 	@Override
 	public List<Kitchen> findAll(){
 		return manager.createQuery("from Kitchen", Kitchen.class).getResultList();		
+	}
+	
+	@Override
+	public List<Kitchen> findByName(String name) {
+		return manager.createQuery("from Kitchen where name like :name", Kitchen.class)
+				.setParameter("name", "%" + name + "%")
+				.getResultList();
 	}
 	
 	@Override
