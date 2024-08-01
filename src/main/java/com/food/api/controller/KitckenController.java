@@ -37,16 +37,12 @@ public class KitckenController {
 	public ResponseEntity<Kitchen> find(@PathVariable Long kitchenId){
 		Kitchen kitchen = kitchenRepository.findById(kitchenId);
 		
-		//return ResponseEntity.status(HttpStatus.OK).body(kitchen);
-		//return ResponseEntity.ok(kitchen);
+		if (kitchen != null ) {
+			return ResponseEntity.ok(kitchen);
+		}
 		
-		HttpHeaders headers = new HttpHeaders();
-		headers.add(HttpHeaders.LOCATION, "http://localhost:8080/kitchens");
-		
-		return ResponseEntity
-				.status(HttpStatus.FOUND)
-				.headers(headers)
-				.build();
+		//return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		return ResponseEntity.notFound().build();
 	}
 
 }
