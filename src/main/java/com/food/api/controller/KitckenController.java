@@ -2,6 +2,7 @@ package com.food.api.controller;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -52,6 +54,22 @@ public class KitckenController {
 		System.out.println("kitchen: " + kitchen.toString());
 		
 		return kitchenRepository.add(kitchen);
+	}
+	
+	@PutMapping("/{kitchenId}")
+	public ResponseEntity<Kitchen> update (@PathVariable Long kitchenId, @RequestBody Kitchen kitchen){
+		Kitchen kitchenActual = kitchenRepository.findById(kitchenId);
+		
+		if (kitchenActual != null) {
+			BeanUtils.copyProperties(kitchen, kitchenActual, "id");
+			
+			kitchenActual = kitchenRepository.add(kitchenActual);
+
+			return ResponseEntity.ok(kitchenActual);
+		}
+		
+		return ResponseEntity.notFound().build();
+		
 	}
 
 }
