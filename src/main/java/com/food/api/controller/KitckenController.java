@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.food.api.model.KitchensXmlWrapper;
 import com.food.domain.model.Kitchen;
 import com.food.domain.repository.KitchenRepository;
+import com.food.domain.service.KitchenRegistrationService;
 
 @RestController
 @RequestMapping(value = "/kitchens")
@@ -28,6 +29,9 @@ public class KitckenController {
 	
 	@Autowired
 	private KitchenRepository kitchenRepository;
+	
+	@Autowired
+	private KitchenRegistrationService kitchenRegistration;
 	
 	@GetMapping
 	public List<Kitchen> list(){
@@ -53,9 +57,7 @@ public class KitckenController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Kitchen add(@RequestBody Kitchen kitchen) {
-		System.out.println("kitchen: " + kitchen.toString());
-		
-		return kitchenRepository.add(kitchen);
+		return kitchenRegistration.add(kitchen);
 	}
 	
 	@PutMapping("/{kitchenId}")
