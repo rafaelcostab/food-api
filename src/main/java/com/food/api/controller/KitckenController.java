@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.info.ProjectInfoProperties.Build;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.food.api.model.KitchensXmlWrapper;
+import com.food.domain.exception.EntityInUseException;
+import com.food.domain.exception.EntityNotFoundException;
 import com.food.domain.model.Kitchen;
 import com.food.domain.repository.KitchenRepository;
 import com.food.domain.service.KitchenRegistrationService;
@@ -78,21 +79,20 @@ public class KitckenController {
 
 	@DeleteMapping("/{kitchenId}")
 	public ResponseEntity<Kitchen> remove(@PathVariable Long kitchenId){
-		
-		try {
-			Kitchen kitchen = kitchenRepository.findById(kitchenId);
 
-			if (kitchen != null) {
-				
-				kitchenRepository.remove(kitchen);
-				
-				return ResponseEntity.noContent().build();
-				
-			}
-			
+		try {
+
+			kitchenRegistration.remove(kitchenId);
+			return ResponseEntity.noContent().build();
+
+		} catch (EntityNotFoundException e) {
+
 			return ResponseEntity.notFound().build();
-		} catch (Exception e) {
+
+		} catch (EntityInUseException e) {
+
 			return ResponseEntity.status(HttpStatus.CONFLICT).build();
+
 		}
 	}
 	

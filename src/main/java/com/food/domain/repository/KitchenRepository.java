@@ -10,6 +10,6 @@ public interface KitchenRepository {
 	List<Kitchen> findByName(String name);
 	Kitchen findById(Long id);
 	Kitchen add(Kitchen kitchen);
-	void remove(Kitchen kitchen);
+	void remove(Long kitchenId);
 	
 }
