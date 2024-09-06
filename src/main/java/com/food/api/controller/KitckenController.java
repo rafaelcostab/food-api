@@ -51,7 +51,7 @@ public class KitckenController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Kitchen add(@RequestBody Kitchen kitchen) {
-		return kitchenRegistration.add(kitchen);
+		return kitchenRegistration.save(kitchen);
 	}
 	
 	@PutMapping("/{kitchenId}")
