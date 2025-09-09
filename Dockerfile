@@ -1,4 +1,4 @@
-FROM maven:3.6-jdk-12
+FROM maven:3.6-jdk-11
 
 WORKDIR /app
 
